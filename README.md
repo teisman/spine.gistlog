@@ -3,7 +3,7 @@ Gistlog is a javascript application that displays a user's gists. Gistlog is wri
 
 
 ##Usage
-1. Checkout the Git repository: `git clone ...` 
+1. Checkout the Git repository: `git clone git://github.com/Teisman/spine.gistlog.git` 
 1. Install npm dependencies: `npm install .`
 3. Compile **lib/javascript.js** using Gruntfile: `grunt` 
 4. Open **index.html** to view your Gistlog
