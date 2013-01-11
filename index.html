@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
+    <script src='lib/jquery.js'></script>
+    <script src='lib/jquery.github.js'></script>
+    <script src='lib/showdown.js'></script>
+    <script src='lib/handlebars.js'></script>
+    <script src='lib/spine.js'></script>
+    <script src='lib/application.js'></script>
+    <script>
+      $(document).ready(function() {
+        var source = $("#entry-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(window.initial_data.user_meta);
+        $('#sidebar').html(html);
+      });
+    </script>
+    <script type='text/x-handlebars' id='gistTemplate'>
+      <article>
+        <header class='title'>
+          <h2>{{title}}</h2>
+        </header>
+        {{#if content}}
+        <div class='content' id='{{id}}-content'>
+          {{{content}}}
+        </div>
+        {{/if}}
+      </article>
+    </script>
+    <script id="entry-template" type="text/x-handlebars-template">
+      <ul id='blog_meta'>
+        <li class='blog_name'><h1>{{blog_name}}</h1></li>
+        <li class='blog_owner'><h2>{{blog_owner}}</h2></li>
+        <li class='tagline'><h2>{{tagline}}</h2></li>
+        {{#each links}}
+          <li class="link"><a href='{{url}}'>{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </script>
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <header class='span3'>
+          <div id='sidebar' class='well sidebar-nav sidebar-nav-fixed'>
+          </div>
+        </header>
+        <section class='span9' id='articles'>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
